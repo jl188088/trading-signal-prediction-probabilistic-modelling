@@ -106,6 +106,21 @@ The system generates:
 10. Visualization & dashboard
 
 ---
+## Output
+Trading signals (Buy/Sell)
+Probability scores
+Risk levels (Low/Medium/High)
+Portfolio allocation per asset
+Backtesting metrics: Sharpe ratio, drawdowns
+Interpretable insights
+Future Work
+Real-time data streaming
+Advanced models (XGBoost, deep learning, reinforcement learning)
+Multi-asset portfolio optimization
+Interactive backtesting dashboard
+
+## Author
+Jayalle Pangilinan
 
 ## Usage
 
@@ -118,30 +133,3 @@ Run Live Trading Simulation
 python main_live.py
 Launch Dashboard
 streamlit run dashboard/app.py
-Output
-
-Trading signals (Buy/Sell)
-
-Probability scores
-
-Risk levels (Low/Medium/High)
-
-Portfolio allocation per asset
-
-Backtesting metrics: Sharpe ratio, drawdowns
-
-Interpretable insights
-
-Future Work
-
-Real-time data streaming
-
-Advanced models (XGBoost, deep learning, reinforcement learning)
-
-Multi-asset portfolio optimization
-
-Interactive backtesting dashboard
-
-## Author
-
-Jayalle Pangilinan
