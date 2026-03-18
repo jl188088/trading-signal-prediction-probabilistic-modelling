@@ -71,30 +71,47 @@ The system generates:
 
 ## Project Structure
 
-
 trading-signal-prediction/
+├── data/
+│   ├── raw/               ── Raw CSV/API downloads
+│   └── processed/         ── Cleaned and preprocessed data
 │
-├── data/ # Raw and processed market data
-├── notebooks/ # Jupyter notebooks for exploration, modeling, and backtesting
-├── src/ # Source code modules
-│ ├── data/
-│ ├── features/
-│ ├── models/
-│ ├── risk/
-│ ├── signals/
-│ ├── portfolio/
-│ └── trading/
-├── models/ # Saved trained models (HMM, portfolio, etc.)
-├── configs/ # YAML configuration files
-├── outputs/ # Generated predictions, backtest results, metrics
-├── dashboard/ # Streamlit dashboard
-├── main.py # Run full pipeline (offline)
-├── main_live.py # Run live trading simulation
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+├── notebooks/
+│   ├── data_exploration.ipynb      ── Explore raw data
+│   ├── feature_engineering.ipynb   ── Test & visualize features
+│   └── backtesting.ipynb           ── Backtest strategies
+│
+├── src/
+│   ├── data/             ── Fetching & preprocessing scripts
+│   ├── features/         ── Feature engineering (returns, SMA, momentum)
+│   ├── models/           ── Probabilistic models (HMM, Bayesian)
+│   ├── risk/             ── Risk scoring & probabilistic risk modeling
+│   ├── signals/          ── Signal generation logic
+│   ├── portfolio/        ── Multi-asset portfolio optimization
+│   └── trading/          ── Trading API wrappers & execution
+│
+├── models/
+│   ├── hmm.pkl           ── Hidden Markov Model
+│   └── portfolio.pkl     ── Optimized portfolio weights
+│
+├── configs/
+│   └── config.yaml       ── Main pipeline & trading config
+│
+├── outputs/
+│   ├── predictions.csv   ── Latest model predictions
+│   └── backtest.csv      ── Historical backtesting results
+│
+├── dashboard/
+│   ├── app.py            ── Streamlit dashboard
+│   └── components/       ── Custom UI components (charts, metrics)
+│
+├── main.py               ── Run full offline pipeline
+├── main_live.py          ── Run live trading simulation
+├── requirements.txt      ── Python dependencies
+└── README.md             ── Project documentation
 
 
----
+-------------------
 
 ## Technology Stack
 
