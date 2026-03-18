@@ -128,9 +128,12 @@ Jayalle Pangilinan
 ### Install Dependencies
 ```bash
 pip install -r requirements.txt
-Run Full Pipeline
+
+# Run Full Pipeline
 python main.py
-Run Live Trading Simulation
+
+# Run Live Trading Simulation
 python main_live.py
-Launch Dashboard
+
+# Launch Dashboard
 streamlit run dashboard/app.py
