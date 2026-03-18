@@ -1,3 +1,7 @@
+
+![source](https://github.com/user-attachments/assets/389bd069-dea4-4b2f-a7c4-656285a0bdcc)
+
+
 # Trading Signal Prediction using Probabilistic Modeling
 
 <img width="1536" height="1024" alt="structure" src="https://github.com/user-attachments/assets/e55c3f5f-f407-48df-88c4-9538b5d653e7" />
