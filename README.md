@@ -1,5 +1,7 @@
 # Trading Signal Prediction using Probabilistic Modeling
 
+<img width="1536" height="1024" alt="structure" src="https://github.com/user-attachments/assets/e55c3f5f-f407-48df-88c4-9538b5d653e7" />
+
 ## Overview
 This project implements an end-to-end data science pipeline for predicting trading signals from financial time-series data. It integrates data ingestion, feature engineering, probabilistic machine learning, and risk modeling to generate actionable insights for decision-making.
 
