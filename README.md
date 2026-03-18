@@ -105,7 +105,6 @@ trading-signal-prediction/
 ├── main_live.py          ── Run live trading simulation
 ├── requirements.txt      ── Python dependencies
 └── README.md             ── Project documentation
-};
 ```
 
 ---
