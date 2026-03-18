@@ -59,16 +59,7 @@ Risk is categorized into:
 - Strategy returns
 - Sharpe ratio
 - Maximum drawdown
-
-### Output
-The system generates:
-
-- Trading signal (Buy/Sell)
-- Prediction probability
-- Risk classification
-- Portfolio allocation
-- Text-based insights
-
+  
 ---
 
 ## Project Structure
@@ -107,6 +98,8 @@ The system generates:
 
 ---
 ## Output
+The system generates:
+
 - Trading signals (Buy/Sell)
 - Probability scores
 - Risk levels (Low/Medium/High)
