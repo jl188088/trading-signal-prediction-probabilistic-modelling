@@ -77,7 +77,7 @@ The system generates:
 <img width="531" height="617" alt="Screenshot 2026-03-19 at 12 53 00 AM" src="https://github.com/user-attachments/assets/0e4f59a2-a9e6-4492-90c7-9f58d40293e5" />
 
 
--------------------
+---
 
 ## Technology Stack
 
@@ -107,22 +107,23 @@ The system generates:
 
 ---
 ## Output
-Trading signals (Buy/Sell)
-Probability scores
-Risk levels (Low/Medium/High)
-Portfolio allocation per asset
-Backtesting metrics: Sharpe ratio, drawdowns
-Interpretable insights
-Future Work
-Real-time data streaming
-Advanced models (XGBoost, deep learning, reinforcement learning)
-Multi-asset portfolio optimization
-Interactive backtesting dashboard
+- Trading signals (Buy/Sell)
+- Probability scores
+- Risk levels (Low/Medium/High)
+- Portfolio allocation per asset
+- Backtesting metrics: Sharpe ratio, drawdowns
+- Interpretable insights
+  
+## Future Work
+- Real-time data streaming
+- Advanced models (XGBoost, deep learning, reinforcement learning)
+- Multi-asset portfolio optimization
+- Interactive backtesting dashboard
 
 ## Author
 Jayalle Pangilinan
 
-## Usage
+---
 
 ### Install Dependencies
 ```bash
