@@ -71,44 +71,8 @@ The system generates:
 
 ## Project Structure
 
-trading-signal-prediction/
-├── data/
-│   ├── raw/               ── Raw CSV/API downloads
-│   └── processed/         ── Cleaned and preprocessed data
-│
-├── notebooks/
-│   ├── data_exploration.ipynb      ── Explore raw data
-│   ├── feature_engineering.ipynb   ── Test & visualize features
-│   └── backtesting.ipynb           ── Backtest strategies
-│
-├── src/
-│   ├── data/             ── Fetching & preprocessing scripts
-│   ├── features/         ── Feature engineering (returns, SMA, momentum)
-│   ├── models/           ── Probabilistic models (HMM, Bayesian)
-│   ├── risk/             ── Risk scoring & probabilistic risk modeling
-│   ├── signals/          ── Signal generation logic
-│   ├── portfolio/        ── Multi-asset portfolio optimization
-│   └── trading/          ── Trading API wrappers & execution
-│
-├── models/
-│   ├── hmm.pkl           ── Hidden Markov Model
-│   └── portfolio.pkl     ── Optimized portfolio weights
-│
-├── configs/
-│   └── config.yaml       ── Main pipeline & trading config
-│
-├── outputs/
-│   ├── predictions.csv   ── Latest model predictions
-│   └── backtest.csv      ── Historical backtesting results
-│
-├── dashboard/
-│   ├── app.py            ── Streamlit dashboard
-│   └── components/       ── Custom UI components (charts, metrics)
-│
-├── main.py               ── Run full offline pipeline
-├── main_live.py          ── Run live trading simulation
-├── requirements.txt      ── Python dependencies
-└── README.md             ── Project documentation
+
+<img width="531" height="617" alt="Screenshot 2026-03-19 at 12 53 00 AM" src="https://github.com/user-attachments/assets/0e4f59a2-a9e6-4492-90c7-9f58d40293e5" />
 
 
 -------------------
