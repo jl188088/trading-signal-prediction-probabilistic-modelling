@@ -1,6 +1,5 @@
 
-![source](https://github.com/user-attachments/assets/389bd069-dea4-4b2f-a7c4-656285a0bdcc)
-
+<img width="1136" height="417" alt="23-233477_construction-border-cliparts-under-construction-tape-clip-art" src="https://github.com/user-attachments/assets/4549ce76-d439-45da-a0c7-0536f7f974f3" />
 
 # Trading Signal Prediction using Probabilistic Modeling
 
