@@ -7,7 +7,6 @@ import pandas as pd
 from src.data.fetch_data import fetch_data, fetch_crypto_data
 from src.data.preprocess import preprocess_data
 
-# NEW probabilistic imports
 from src.models.hmm_model import load_hmm, predict_states
 from src.risk.probabilistic_risk import compute_var, compute_volatility, risk_label
 from src.signals.signal_generator import generate_signal
@@ -15,33 +14,27 @@ from src.signals.signal_generator import generate_signal
 from src.trading.alpaca_trader import AlpacaTrader
 
 
-# ------------------------------
-# Load config
-# ------------------------------
+#load config
 with open("configs/config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
-# ------------------------------
-# Initialize trader
-# ------------------------------
+
+#initialize trader
 trader = AlpacaTrader(
     config["alpaca_key"],
     config["alpaca_secret"],
     config["alpaca_url"]
 )
 
-# ------------------------------
-# Load trained HMM model ONCE
-# ------------------------------
+
+#load trained hmm model once
 model = load_hmm("models/hmm.pkl")
 
 print("Starting probabilistic live trading loop...")
 
 while True:
     try:
-        # ------------------------------
-        # Fetch latest data
-        # ------------------------------
+        #fetch latest data
         raw_path = "data/raw/live_data.csv"
 
         if config.get("asset_type") == "crypto":
@@ -61,28 +54,21 @@ while True:
                 raw_path
             )
 
-        # ------------------------------
-        # Preprocess
-        # ------------------------------
+        #preprocess
+
         df = preprocess_data(raw_path)
 
-        # ------------------------------
-        # Compute returns (CORE FEATURE)
-        # ------------------------------
+        #compute returns (core feature)
         df["returns"] = df["Close"].pct_change()
         df.dropna(inplace=True)
 
-        # ------------------------------
-        # HMM Inference (NO TRAINING)
-        # ------------------------------
+        #hmm inference (no training)
         states, probs = predict_states(model, df["returns"])
 
         df["state"] = states
-        df["prob_bull"] = probs[:, 1]  # assuming state 1 = bull
+        df["prob_bull"] = probs[:, 1]  #assuming state 1 = bull
 
-        # ------------------------------
-        # Risk Modeling
-        # ------------------------------
+        #risk modeling
         var = compute_var(df["returns"])
         volatility = compute_volatility(df["returns"])
         risk = risk_label(var, volatility)
@@ -91,27 +77,20 @@ while True:
         df["volatility"] = volatility
         df["risk"] = risk
 
-        # ------------------------------
-        # Generate Signal
-        # ------------------------------
+        #generate signal
         signal = generate_signal(probs)
         df["signal"] = signal
 
-        # ------------------------------
-        # Save predictions (for dashboard)
-        # ------------------------------
+        #save predictions (for dashboard)
         df.to_csv("outputs/predictions.csv", index=False)
 
-        # ------------------------------
-        # Execute Trade
-        # ------------------------------
+
+        #execute trade
         trader.place_order(config["asset"], signal)
 
         print(f"[{datetime.now()}] Trade executed for {config['asset']} | Signal: {signal} | Risk: {risk}")
 
-        # ------------------------------
-        # Wait before next iteration
-        # ------------------------------
+        #wait before next iteration
         time.sleep(60)
 
     except KeyboardInterrupt:

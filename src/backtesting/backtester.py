@@ -9,12 +9,12 @@ def backtest(df, initial_balance=10000):
         signal = df.iloc[i]["signal"]
         price = df.iloc[i]["Close"]
 
-        # BUY
+        #BUY
         if signal == 1 and position == 0:
             position = balance / price
             balance = 0
 
-        # SELL
+        #SELL
         elif signal == 0 and position > 0:
             balance = position * price
             position = 0

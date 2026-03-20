@@ -5,11 +5,11 @@ def preprocess_data(path):
     df.dropna(inplace=True)
     df.sort_values("Date", inplace=True)
     
-    # Ensure numeric columns are floats
+    #ensure numeric columns are floats
     numeric_cols = ["Open", "High", "Low", "Close", "Adj Close", "Volume"]
     for col in numeric_cols:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     
-    df.dropna(inplace=True)  # Drop rows where conversion failed
+    df.dropna(inplace=True)  #drop rows where conversion failed
     return df

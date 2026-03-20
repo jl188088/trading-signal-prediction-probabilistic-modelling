@@ -1,21 +1,20 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 st.set_page_config(page_title="Probabilistic Trading Dashboard", layout="wide")
 st.title("Probabilistic Trading System (HMM + Risk Modeling)")
 
-# -----------------------------
-# Load Data
-# -----------------------------
+
+#load data
 try:
     df = pd.read_csv("outputs/predictions.csv")
 except FileNotFoundError:
     st.warning("No predictions found yet. Run main.py or main_live.py first.")
     st.stop()
 
-# -----------------------------
-# Latest Metrics
-# -----------------------------
+
+#metrics
 latest = df.iloc[-1]
 
 col1, col2, col3, col4 = st.columns(4)
@@ -25,55 +24,43 @@ col2.metric("Bull Probability", f"{latest['prob_bull']:.2f}")
 col3.metric("Risk Level", latest["risk"])
 col4.metric("Volatility", f"{latest['volatility']:.4f}")
 
-# -----------------------------
-# Price + Regime
-# -----------------------------
+
+#price + regime
 st.subheader("Price")
 st.line_chart(df["Close"])
 
 st.subheader("Market Regimes (HMM States)")
 st.line_chart(df["state"])
 
-# -----------------------------
-# Probabilities
-# -----------------------------
+
+#probabilities
 st.subheader("Bull Market Probability")
 st.line_chart(df["prob_bull"])
 
-# -----------------------------
-# Risk Metrics
-# -----------------------------
+
+#risk metrics
 st.subheader("Volatility")
 st.line_chart(df["volatility"])
 
-# -----------------------------
-# Signal Visualization
-# -----------------------------
+
+#signal visualization
 st.subheader("Signal Over Time")
 st.line_chart(df["signal"])
 
-# -----------------------------
-# Raw Data
-# -----------------------------
+#raw data
 with st.expander("Show Raw Data"):
     st.dataframe(df.tail(100))
 
-    # -----------------------------
-# Equity Curve
-# -----------------------------
+
+#equity curve
 st.subheader("Equity Curve (Backtest)")
 st.line_chart(df["equity"])
 
-# -----------------------------
-# Strategy Returns
-# -----------------------------
+
+#strategy returns
 df["strategy_returns"] = df["equity"].pct_change()
 
-# -----------------------------
-# Sharpe Ratio
-# -----------------------------
-import numpy as np
-
+#sharpe ratio
 sharpe = np.mean(df["strategy_returns"].dropna()) / np.std(df["strategy_returns"].dropna())
 
 st.metric("Sharpe Ratio", f"{sharpe:.2f}")

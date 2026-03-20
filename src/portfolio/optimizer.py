@@ -11,7 +11,7 @@ def optimize_portfolio(returns_df):
 
     weights = np.ones(num_assets) / num_assets
 
-    # Sharpe maximization (simplified)
+    #sharpe maximization (simplified)
     inv_cov = np.linalg.pinv(cov_matrix.values)
     weights = inv_cov @ mean_returns.values
 
